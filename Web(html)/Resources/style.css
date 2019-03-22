@@ -1,0 +1,17 @@
+.logo {
+    font-weight: bold;
+    color: #fbc531;
+    font-size: 60px;
+    font-style: oblique;
+}
+
+.first image {
+    width: 20%; 
+    float: left; 
+    margin : 5px;
+
+}
+
+.text {
+    float: right;
+}
