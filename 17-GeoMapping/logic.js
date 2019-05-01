@@ -56,20 +56,20 @@ function circleMarker( feature, latlng ){
     return L.circleMarker( latlng, options );
 }
 
-function setFeatures(earthquakeData) {
+function setFeatures(eq_d) {
 
-    function onEachFeature(feature, layer) {
+    function setFeatures_2(feature, layer) {
    
      layer.bindPopup("<h3>" + feature.properties.place +
      "</h3><hr>Magnitude: " + feature.properties.mag +
      "<p>" + new Date(feature.properties.time) + "</p>");;
      }
    
-   var earthquakes = L.geoJSON(earthquakeData, {pointToLayer: circleMarker,
-     onEachFeature: onEachFeature
+   var e_quake = L.geoJSON(eq_d, {pointToLayer: circleMarker,
+     setFeatures_2: setFeatures_2
   }).addTo(finalMap)
    
- createMap(earthquakes);
+ createMap(e_quake);
  }
 
 
@@ -92,10 +92,10 @@ function magColor(mag) {
 };
 
 //Final Mapping w/layers
-function createMap(earthquakes) {
+function createMap(e_quake) {
     // Create overlay 
     var mapOverlay = {
-      Earthquakes: earthquakes,
+      Earthquakes: e_quake,
     };
     // Add the layer control to the map
     L.control.layers(baseMaps, mapOverlay, {
